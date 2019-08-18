@@ -80,7 +80,7 @@ module.exports = {
     new WorkboxWebpackPlugin.GenerateSW({
       runtimeCaching : [
         {
-          urlPattern : new RegExp('https://platzi-courses-node.alextexis.now.sh'),
+          urlPattern : new RegExp('https://platzi-courses-node.now.sh/'),
           handler : 'NetworkFirst',
           options :{
             cacheName : 'api'

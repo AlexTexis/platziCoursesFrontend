@@ -1,1 +1,0 @@
-body{font-family:Poppins,sans-serif;background-color:#f8f9fb}body,h1,h2,h3,h4,h5,p{margin:0}button,input,label,option,select{font-family:Poppins,sans-serif}.layout_adm{height:100vh;display:grid;grid-template:50px 1fr/60px 1fr;grid-template-areas:"sidebar header" "sidebar content"}
