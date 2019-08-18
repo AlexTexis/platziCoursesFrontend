@@ -1,0 +1,16 @@
+body 
+{
+  font-family: 'Poppins', sans-serif;
+  background-color : #F8F9FB;
+  margin : 0;
+}
+
+h1,h2,h3,h4,h5,p
+{
+  margin : 0
+}
+
+button,input,select,option,label
+{
+  font-family: 'Poppins', sans-serif;
+}

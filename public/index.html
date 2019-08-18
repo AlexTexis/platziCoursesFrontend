@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <title>Platzi Courses</title>
+</head>
+<body>
+  <div id="root"></div>
+  <div id="modal"></div>
+  <noscript>
+    Required javascript
+  </noscript>
+  <script>
+    if('serviceWorker' in navigator)
+    {
+      window.addEventListener('load',() => {
+        navigator.serviceWorker.register('/service-worker.js')
+        .then( resgistration => console.log('SW registrado'))
+        .catch( resgistrationError => console.log('SW error',resgistrationError))
+      })
+    }
+  </script>
+</body>
+</html>
