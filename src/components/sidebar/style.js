@@ -27,6 +27,7 @@ export const LinkRoute = styled(LinkRouter)`
   margin:0 auto;
   margin-bottom :.5em;
   text-align:center;
+  outline : 0;
   &[aria-current] {
     color : #98CA3F;
   };

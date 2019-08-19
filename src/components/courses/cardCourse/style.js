@@ -30,3 +30,11 @@ export const CoverCourse = styled.div`
   margin:0 auto;
   margin-bottom:1.8em;
 `
+
+export const CourseTitle = styled.h3`
+  width :240px;
+  text-overflow : ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  text-align:center;
+`
