@@ -25,7 +25,7 @@ const updatedStudentsAdd = (action,state) => {
   return coursesUpd
 }
 
-const updateClassAdd = (action,state) => {
+const updatedClassAdd = (action,state) => {
   let coursesUpd = { ...state.courses }
 
   Object.keys(coursesUpd).map( id => {
@@ -103,7 +103,7 @@ export default function(state=initalState,action)
      }
 
    case ACTION_COURSE_STUDENT_ADD:
-    let updatedCourse = updatedStudentsAdd(action,state) //-> retorna key groups actualizados
+    let updatedCourse = updatedStudentsAdd(action,state) //-> return key courses actualizados
     return {
       ...state,
       courses : updatedCourse
@@ -111,21 +111,21 @@ export default function(state=initalState,action)
     }
 
    case ACTION_COURSE_STUDENT_REMOVE:
-     let updateDelCourse = updatedStudentsDel(action,state)//-> retorna key groups actualizados
+     let updateDelCourse = updatedStudentsDel(action,state)//-> return key courses actualizados
     return {
       ...state,
       courses : updateDelCourse
     }
 
     case ACTION_COURSE_ADD_CLASS:
-      let updateCourseClass = updateClassAdd(action,state)
+      let updateCourseClass = updatedClassAdd(action,state)//-> return key courses actualizados
       return {
         ...state,
         courses : updateCourseClass
       }
 
     case ACTION_COURSE_REMOVE_CLASS:
-      let updateCourseClassRemove = updatedClassDel(action,state)
+      let updateCourseClassRemove = updatedClassDel(action,state)//-> return key courses actualizados
       return {
         ...state,
         courses : updateCourseClassRemove

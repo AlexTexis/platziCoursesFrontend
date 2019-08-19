@@ -9,6 +9,14 @@ export const Sidebar = styled.section`
   padding: 4em 0 1em 0;
   box-sizing:border-box;
   box-shadow: 2px 0 15px -6px rgba(0,0,0,.1);
+  @media screen and (max-width:768px) {
+    height : auto;
+    width : 100%;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    padding:0;
+  }
 `
 
 export const LinkRoute = styled(LinkRouter)`
@@ -21,5 +29,8 @@ export const LinkRoute = styled(LinkRouter)`
   text-align:center;
   &[aria-current] {
     color : #98CA3F;
+  };
+  @media screen and (max-width:768px) {
+    margin : 0;
   }
 `

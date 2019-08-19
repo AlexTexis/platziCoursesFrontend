@@ -9,6 +9,7 @@ export const Button = styled.button`
   border:none;
   border-radius:3px;
   margin-bottom:1em;
+  outline : 0;
   ${ props => props.backgroundColor && css`
     background-color:${props.backgroundColor}
     `

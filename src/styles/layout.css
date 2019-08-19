@@ -6,3 +6,14 @@
   grid-template-areas: "sidebar header"
                        "sidebar content";
 }
+
+
+@media screen and (max-width:768px){
+  .layout_adm 
+  {
+    grid-template:50px 1fr 45px / 1fr;
+    grid-template-areas : "header"
+		                      "content"
+	                        "sidebar";
+  }
+}

@@ -15,6 +15,7 @@ export const InputStyled = styled.input`
   color:#808080;
   font-size:1em;
   margin-bottom : 1em;
+  outline : 0;
 `
 export const Input = styled.input`
   width:100%;
@@ -25,6 +26,7 @@ export const Input = styled.input`
   border:none;
   box-shadow: 0 0 0 1px #E5E5E5;
   border-radius : 50px;
+  outline : 0;
 `
 
 export const SelectStyled = styled.select`
@@ -41,6 +43,7 @@ export const SelectStyled = styled.select`
   color:#808080;
   font-size:1em;
   margin-bottom : 1em;
+  outline : 0;
 `
 
 export const Select = styled.select`
@@ -54,5 +57,6 @@ export const Select = styled.select`
   border-radius : 50px;
   -webkit-appearance : button;
   -ms-appearance : button;
+  outline : 0;
 `
 

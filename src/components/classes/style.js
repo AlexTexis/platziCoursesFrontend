@@ -16,4 +16,7 @@ width:90%;
 padding : 1em 0 0 0;
 box-sizing:border-box;
 margin:0 auto;
+@media screen and (max-width:420px){
+  font-size : .8em;
+}
 ` 

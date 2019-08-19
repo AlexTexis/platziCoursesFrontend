@@ -12,6 +12,7 @@ export const Input = styled.input`
   background-color: transparent;
   position:relative;
   z-index:1;
+  outline : 0;
 `
 
 export const Span = styled.span`

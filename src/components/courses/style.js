@@ -1,6 +1,6 @@
 import styled,{css} from 'styled-components'
 
-export const GridGroups = styled.div`
+export const GridCourses = styled.div`
   display:grid;
   grid-template-columns : repeat(auto-fill,minmax(250px,250px));
   justify-content:center;
@@ -11,6 +11,10 @@ export const GridList = styled.div`
   display:grid;
   grid-template-columns : 1fr 1fr 1fr;
   grid-gap:1em;
+  @media screen and (max-width:768px) {
+    grid-template-columns : 1fr;
+  }
+
 `
 
 export const ContainerSplit = styled.div`
@@ -26,6 +30,10 @@ export const CoursesContainer = styled.section`
  padding : 1em 0 0 0;
  box-sizing:border-box;
  margin:0 auto;
+ font-size:1em;
+ @media screen and (max-width:420px){
+   font-size : .8em;
+ }
 ` 
 
 export const P = styled.p`

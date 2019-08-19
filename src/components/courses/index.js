@@ -11,7 +11,7 @@ import * as actionsCourses from '../../action/actionsCourses'
 const { LOAD_COURSES } = actionsCourses
 
 //Styled components
-import { CoursesContainer,GridGroups } from './style'
+import { CoursesContainer,GridCourses } from './style'
 import { H1,H2,P } from '../general/titles/style'
 import { Spinner } from '../general/spinner/style'
 import { LinkRoute } from '../general/link/style'
@@ -37,7 +37,7 @@ const Courses = ({LOAD_COURSES,courses}={}) => {
     if(loading || !courses) return <Spinner color='#24ADF3' height='28px' width='28px' center/>
     if(!Object.keys(courses).length) return <H2>!Hey no hay cursos  🤷‍♂️‍,se el primero en registrar uno!</H2>
     return ( 
-      <GridGroups>
+      <GridCourses>
         {
           Object.keys(courses).map( idCourse => 
             <LinkRoute to={`/courses/${idCourse}`} key={idCourse}>
@@ -45,7 +45,7 @@ const Courses = ({LOAD_COURSES,courses}={}) => {
             </LinkRoute> 
           )
         }
-     </GridGroups>
+     </GridCourses>
     ) 
   }
 

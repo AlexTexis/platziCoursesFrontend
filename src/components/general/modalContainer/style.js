@@ -34,7 +34,10 @@ grid-template : 40px 1fr 40px / 1fr;
 grid-template-areas : "labelTitle"
                       "content"
                       "buttons";
-${fadeIn()}
+${fadeIn()};
+@media screen and (max-width:420px) {
+  width : 375px;
+}
 `
 
 export const ButtonsContainer = styled.div`
