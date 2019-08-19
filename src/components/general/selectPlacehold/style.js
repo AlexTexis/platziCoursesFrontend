@@ -26,7 +26,7 @@ export const Options = styled.ul`
   width:100%;
   top :30px;
   left :0;
-  min-height : 100px;
+  max-height : 150px;
   overflow:auto;
   background-color : #fff;
   box-shadow : 0 2px 10px -4px rgba(0,0,0,.3);

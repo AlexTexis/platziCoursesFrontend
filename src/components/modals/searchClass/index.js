@@ -7,6 +7,7 @@ const  { COURSE_CLASS_ADD } = actionsCourses
 
 //components
 import Success from '../../general/notifications/success'
+import Error from '../../general/notifications/error'
 import ModalContainer from '../../general/modalContainer/index'
 import SelectPlacehold from '../../general/selectPlacehold/index'
 
@@ -73,6 +74,9 @@ const addStudent = ({titleLabel,handlerCancel,idCourse,COURSE_CLASS_ADD}={}) => 
       </Button>
       {
         succesful &&  <Success message='Clase añadida'/>
+      }
+      {
+        error && <Error message={error}/>
       }
     </ModalContainer>
     )
