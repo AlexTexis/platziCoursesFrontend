@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { connect } from 'react-redux'
 
 //redux
@@ -13,7 +13,11 @@ import { Spinner } from '../../general/spinner/style'
 //hooks
 import { useRemoveClass } from '../../../hooks/classes/useRemove'
 
+//context
+import { AppContext } from '../../../context'
+
 const Card = ({textContent,label,idClass,CLASS_REMOVE}={}) => {
+  const { auth } = useContext(AppContext)
   const { error,loading,data,setRemove } = useRemoveClass()
 
   const handlerRemoveClass = () => {
@@ -30,11 +34,14 @@ const Card = ({textContent,label,idClass,CLASS_REMOVE}={}) => {
       </p>
       <ButtonsContainer>
         <Label>{label}</Label>
-        <IconRemove onClick={handlerRemoveClass}>
-          {
-            loading ? <Spinner/> : <FaMinus size={22}/>
-          }
-        </IconRemove>
+        {
+          auth &&
+          <IconRemove onClick={handlerRemoveClass}>
+            {
+              loading ? <Spinner/> : <FaMinus size={22}/>
+            }
+          </IconRemove>
+        }
       </ButtonsContainer>
     </CardContainer>
     )

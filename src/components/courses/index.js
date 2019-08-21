@@ -21,10 +21,11 @@ import Error from '../general/notifications/error'
 import { useModal } from '../../hooks/useModal'
 import { useGetCourses } from '../../hooks/courses/useGet'
 
+
 const Courses = ({LOAD_COURSES,courses}={}) => {
   const modalAdd = useModal(false)
   const { error,loading,setCourses } = useGetCourses()
-
+  
   useEffect(() => {
     if(!courses) setCourses({ 
       actionCreator : LOAD_COURSES

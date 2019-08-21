@@ -25,7 +25,7 @@ const AddNewClass = ({handlerCancel,titleLabel,CLASS_ADD}) => {
   const name = useInputValue('')
   const label = useInputValue('')
 
-  const { data,loading,error,setCreate }  = usecreateClass()
+  const { data,loading,error,unAuthorized,setCreate }  = usecreateClass()
   //success message
   const [succesful,setSucces] = useState(false)
 
@@ -69,6 +69,7 @@ const AddNewClass = ({handlerCancel,titleLabel,CLASS_ADD}) => {
         </Button>
         
         { error && <Error message={error}/> }
+        { unAuthorized && <Error message='Inautorizado'/> }
         { succesful && <Success message='¡Clase creada!'/> }
      </form>
     </ModalContainer>

@@ -1,4 +1,4 @@
-import React,{useState,useEffect,Fragment} from 'react'
+import React,{useState,useEffect,useContext,Fragment} from 'react'
 import {  connect } from 'react-redux';
 
 //redux
@@ -20,8 +20,12 @@ import Success from '../../general/notifications/success'
 //hooks
 import { useStudentUpdate } from '../../../hooks/students/useUpdate'
 
+//Context
+import { AppContext } from '../../../context'
+
 const FormUpdate = ({idStudent,students,UPDATE_STUDENT}={}) => {
 
+  const { auth } = useContext(AppContext)
   const [nameStudent,setName] = useState('')
   const [surnamesStudent,setSurnames] = useState('')
   const [descriptionStudent,setDescription] = useState('')
@@ -74,44 +78,65 @@ const FormUpdate = ({idStudent,students,UPDATE_STUDENT}={}) => {
       <GridList>
         <div>
           <H3>Nombre</H3>
-          <InputStyled value={nameStudent} onChange={ e => setName(e.target.value)}/>
+          <InputStyled 
+            value={nameStudent} 
+            onChange={ e => setName(e.target.value)} 
+            disabled={ auth ? false : true}/>
         </div>
 
         <div>
           <H3>Apellidos</H3>
-          <InputStyled  value={surnamesStudent} onChange={ e => setSurnames(e.target.value)}/>
+          <InputStyled  
+            value={surnamesStudent} 
+            onChange={ e => setSurnames(e.target.value)} 
+            disabled={ auth ? false : true}/>
         </div>
 
         <div>
           <H3>Descripcion</H3>
-          <InputStyled value={descriptionStudent} onChange={ e => setDescription(e.target.value)}/>
+          <InputStyled 
+            value={descriptionStudent} 
+            onChange={ e => setDescription(e.target.value)} 
+            disabled={ auth ? false : true}/>
         </div>
 
         <div>
           <H3>Usuario Twitter</H3>
-          <InputStyled value={twitterStudent} onChange={ e => setTwitter(e.target.value)}/>
+          <InputStyled 
+            value={twitterStudent} 
+            onChange={ e => setTwitter(e.target.value)} 
+            disabled={ auth ? false : true}/>
         </div>
 
         <div>
           <H3>Email</H3>
-          <InputStyled value={emailStudent} onChange={ e => setEmail(e.target.value)}/>
+          <InputStyled 
+            value={emailStudent} 
+            onChange={ e => setEmail(e.target.value)} 
+            disabled={ auth ? false : true}/>
         </div>
 
         <div>
         <H3>Interes</H3>
-        <SelectStyled value={interestStudent} onChange={ e => setInterest(e.target.value)}>
-          <option value="Desarrollo frontend">Desarrollo frontend</option>
-          <option value="Desarrollo backend">Desarrollo backend</option>
-          <option value="Marketing">Marketing</option>
-          <option value="Diseñador grafico">Diseñador grafico</option>
-          <option value="Negocios">Negocios</option>
-          <option value="Audiovisual">Audiovisual</option>
+        <SelectStyled 
+          value={interestStudent} 
+          onChange={ e => setInterest(e.target.value)} 
+          disabled={ auth  ? false : true}>
+            <option value="Desarrollo frontend">Desarrollo frontend</option>
+            <option value="Desarrollo backend">Desarrollo backend</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Diseñador grafico">Diseñador grafico</option>
+            <option value="Negocios">Negocios</option>
+            <option value="Audiovisual">Audiovisual</option>
         </SelectStyled>
         </div>
       </GridList>
-      <Button onClick={handlerUpdate} backgroundColor='#98CA3F'>{loading ? <Spinner/> : 'Guardar cambios'}</Button>
-      { succesful && <Success message='Datos actualizados'/> }
+      { 
+        auth &&
+        <Button onClick={handlerUpdate} backgroundColor='#98CA3F'>{loading ? <Spinner/> : 'Guardar cambios'}</Button>
+      }
       { error && <Error message={error}/> }
+      { succesful && <Success message='Datos actualizados'/> }
     </Fragment>
   )
 }

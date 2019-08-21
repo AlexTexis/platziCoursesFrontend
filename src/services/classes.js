@@ -1,3 +1,4 @@
+import { isUnauthorized,redirect } from './utils/isUnauthorized'
 import {
 configGet,
 configPost,
@@ -44,6 +45,7 @@ export class ClassesServices
     try 
     { 
       response = await fetch(`${this.uri}`,configPost(input))
+      if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)
@@ -66,6 +68,7 @@ export class ClassesServices
     try 
     { 
       response = await fetch(`${this.uri}/${id}`,configDelete())
+      if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)

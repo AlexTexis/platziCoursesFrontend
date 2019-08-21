@@ -1,0 +1,1 @@
+export const toBase64 = (data) => new Buffer(data).toString('base64')

@@ -73,12 +73,8 @@ const addStudent = ({titleLabel,handlerCancel,idCourse,COURSE_STUDENT_ADD}={}) =
         'Guardar'
       }
     </Button>
-    {
-      succesful && <Success message='Añadido al curso'/>
-    }
-    {
-      error && <Error message={error}/>
-    }
+    { error && <Error message={error}/> }
+    { succesful && <Success message='Añadido al curso'/> }
   </ModalContainer>
 )
 }

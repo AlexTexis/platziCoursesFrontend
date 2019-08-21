@@ -28,7 +28,7 @@ const AddNewStudent = ({handlerCancel,titleLabel,ADD_STUDENT}) => {
   const description = useInputValue('')
   const twitter = useInputValue('')
 
-  const { data,loading,error,setCreate }  = useCreateStudent()
+  const { data,loading,error,setCreate } = useCreateStudent()
   //success message
   const [ succesful,setSuccess ] = useState(false)
 

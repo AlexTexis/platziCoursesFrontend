@@ -1,3 +1,4 @@
+import { isUnauthorized,redirect } from './utils/isUnauthorized'
 import { 
   configGet,
   configPost,
@@ -39,10 +40,12 @@ export class CoursesServices
     let response = null
     let data = null
     let error = null
-
+    
+    
     try 
     {
       response = await fetch(this.uri,configPost(input))
+      if(isUnauthorized(response)) return redirect()      
       data = await response.json()
     }
     catch(e)
@@ -61,10 +64,12 @@ export class CoursesServices
     let response = null
     let error = null
     let data = null 
+    
 
     try 
     {
       response = await fetch(`${this.uri}/${id}`,configPut(input))
+       if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)
@@ -74,7 +79,8 @@ export class CoursesServices
 
     return {
      error,
-     data 
+     data,
+      
     }
   }
 
@@ -83,10 +89,12 @@ export class CoursesServices
     let response = null
     let error = null
     let data = null 
+    
 
     try 
     {
       response = await fetch(`${this.uri}/${id}`,configDelete())
+       if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)
@@ -107,9 +115,11 @@ export class CoursesServices
     let data = null
     let error = null
     
+    
     try 
     {
       response = await fetch(`${this.uri}/${id}/students/${idStudent}`,configDelete())
+       if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)
@@ -129,9 +139,11 @@ export class CoursesServices
     let data = null
     let error = null
     
+    
     try 
     {
       response = await fetch(`${this.uri}/${id}/class/${idClass}`,configDelete())
+       if(isUnauthorized(response)) return redirect()
       data = await response.json()
     }
     catch(e)
@@ -150,10 +162,12 @@ export class CoursesServices
     let response = null
     let data = null
     let error = null
+    
 
     try 
     {
       response = await fetch(`${this.uri}/${id}/students`,configPost(input))
+       if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)
@@ -172,10 +186,11 @@ export class CoursesServices
     let response = null
     let data = null
     let error = null
-
+    
     try 
     {
       response = await fetch(`${this.uri}/${id}/class`,configPost(input))
+       if(isUnauthorized(response)) return redirect() 
       data = await response.json()
     }
     catch(e)
@@ -188,8 +203,5 @@ export class CoursesServices
       error
     }
   }
-
-
-  
  
 }

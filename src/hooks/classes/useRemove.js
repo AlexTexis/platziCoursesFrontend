@@ -9,9 +9,9 @@ export const useRemoveClass = () => {
   const remove = async ({id,actionCreator}) => {
     setLoading(true)
     const { data,error } = await new ClassesServices().remove(id)
-    if(error) setError(error)
-    setData(data.data)
     setLoading(false)
+    if(error) return setError(error)
+    setData(data.data)
     actionCreator(data.data)
   }
 

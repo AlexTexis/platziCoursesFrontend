@@ -13,7 +13,7 @@ const Layout = ({children,title,description}={}) => (
       <meta name="description" content={description} />
     </Helmet>
     <Sidebar/>
-    <Header/>
+    <Header showBtnSession/>
     <div style={{gridArea : 'content',overflow : 'auto'}}>
     {
       children

@@ -9,10 +9,10 @@ export const useCreateCourse = () => {
   const create = async ({input,actionCreator}) => {
     setLoading(true)
     const { data,error } = await new CoursesServices().create(input)
-    if(error) setError(error)
+    setLoading(false)
+    if(error) return setError(error) 
     setData(data.data)
     actionCreator(data.data)
-    setLoading(false)
   }
 
   return {

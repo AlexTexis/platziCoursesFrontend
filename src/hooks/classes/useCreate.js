@@ -9,9 +9,9 @@ export const usecreateClass = () => {
   const create = async ({input,actionCreator}) => {
     setLoading(true)
     const { data,error } = await new ClassesServices().create(input)
-    if(error) setError(error)
-    setData(data.data)
     setLoading(false)
+    if(error) return setError(error)
+    setData(data.data)
     actionCreator(data.data)
   }
 

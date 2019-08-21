@@ -8,9 +8,11 @@ export const HeaderContainer = styled.header`
   margin:0 auto; 
   display:flex;
   justify-content:space-between;
+  align-items:center;
   position:relative;
 `
 export const LogoContainer = styled.div`
   display:flex;
   align-items:center;
+  cursor:pointer;
 `

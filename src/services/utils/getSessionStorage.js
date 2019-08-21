@@ -1,0 +1,1 @@
+export const getSessionStorage = (name) => sessionStorage.getItem(name)

@@ -1,4 +1,4 @@
-import React,{useEffect,Fragment} from 'react'
+import React,{useEffect,useContext,Fragment} from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from '@reach/router'
 
@@ -27,8 +27,12 @@ import ModalAddStudent from '../modals/searchStudent/index'
 import ModalAddClass from '../modals/searchClass/index'
 import FormUpdate from './formUpdate/index'
 
+//Context
+import { AppContext } from '../../context'
+
 const CourseAbout = ({idCourse,courses,LOAD_COURSES,COURSE_REMOVE}={}) => {
  
+  const { auth } = useContext(AppContext)
   const { error,loading,setCourses } = useGetCourses()
   const hookCourseRemove = useCourseRemove()
   const modalAddStudent = useModal(false)
@@ -76,18 +80,16 @@ const CourseAbout = ({idCourse,courses,LOAD_COURSES,COURSE_REMOVE}={}) => {
           <Toolbar onClickAdd={modalAddClass.setShow}/>
           <ListClasses classes={courses[idCourse].class} idCourse={idCourse}/>
         </ContainerSplit>
-
-        <Button onClick={handlerRemoveCourse} backgroundColor='#98CA3F'>
           {
-            hookCourseRemove.loading ? <Spinner/> : 'Remover curso'
+            auth &&
+            <Button onClick={handlerRemoveCourse} backgroundColor='#98CA3F'>
+              {
+                hookCourseRemove.loading ? <Spinner/> : 'Remover curso'
+              }
+            </Button>
           }
-        </Button>
-        {
-          hookCourseRemove.data && <Redirect noThrow to='/'/> //redirect after create
-        }
-        {
-          hookCourseRemove.error && <Error message={hookCourseRemove.error}/>
-        }
+        { hookCourseRemove.error && <Error message={hookCourseRemove.error}/> }
+        { hookCourseRemove.data && <Redirect noThrow to='/'/> }
       </Fragment> 
     )
   }

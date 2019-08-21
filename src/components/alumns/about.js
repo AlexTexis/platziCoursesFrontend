@@ -1,4 +1,4 @@
-import React,{useEffect,Fragment} from 'react'
+import React,{useEffect,useContext,Fragment} from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from '@reach/router'
 
@@ -22,7 +22,11 @@ import Error from '../general/notifications/error'
 import { useGetStudents } from '../../hooks/students/useGet'
 import { useStudentRemove } from '../../hooks/students/useRemove'
 
+//Context
+import { AppContext } from '../../context'
+
 const About = ({id,students,LOAD_STUDENTS,REMOVE_STUDENT}={}) => {
+  const { auth } = useContext(AppContext)
   const { loading,error,setStudents } = useGetStudents()
   const hookStudentRemove = useStudentRemove()
 
@@ -54,12 +58,14 @@ const About = ({id,students,LOAD_STUDENTS,REMOVE_STUDENT}={}) => {
           <ContainerSplit>
             <FormUpdate idStudent={id}/>
           </ContainerSplit>
-
-          <Button onClick={handlerRemoveStudent} backgroundColor='#98CA3F'>
-            {
-              hookStudentRemove.loading ? <Spinner/>  : 'Removerme'
-            }
-          </Button>
+          {
+            auth  && 
+            <Button onClick={handlerRemoveStudent} backgroundColor='#98CA3F'>
+              {
+                hookStudentRemove.loading ? <Spinner/>  : 'Removerme'
+              }
+            </Button>
+          }
 
           { hookStudentRemove.error && <Error message={studentRemove.error}/>}
           { hookStudentRemove.data && <Redirect noThrow to='/alumns'/>}

@@ -9,9 +9,9 @@ export const useStudentUpdate = () => {
   const update = async({id,input,actionCreator}) => {
     setLoading(true)
     const { error,data } = await new AlumnsServices().update(id,input)
-    if(error) setError(error)
-    setData(data.data)
     setLoading(false)
+    if(error) return setError(error)
+    setData(data.data)
     actionCreator(data.data)
   }
 
