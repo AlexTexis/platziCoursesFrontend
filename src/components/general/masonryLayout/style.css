@@ -1,0 +1,9 @@
+.masonry_layout{
+  margin : 0 auto;
+}
+
+@media screen and (max-width:460px) {
+  .masonry_layout {
+    width: 100% !important;
+  }
+}

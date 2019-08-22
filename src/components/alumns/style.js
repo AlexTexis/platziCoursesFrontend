@@ -13,6 +13,6 @@ export const StudentsContainer = styled.section`
  box-sizing:border-box;
  margin:0 auto;
  @media screen and (max-width:420px){
-  font-size : .8em;
+  font-size : .9em;
 }
 ` 

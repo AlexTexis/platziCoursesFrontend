@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useContext} from 'react'
 import  { connect } from 'react-redux'
 
 //redux
@@ -20,8 +20,12 @@ import Error from '../general/notifications/error'
 //hooks
 import { useGetClasses } from '../../hooks/classes/useGet'
 import { useModal } from '../../hooks/useModal'
+
+//context
+import { AppContext } from '../../context'
  
 const Classes = ({classes,LOAD_CLASSES}={}) => {
+  const { auth } = useContext(AppContext)
   const { error,loading,setClasses } = useGetClasses()
   const modalClass = useModal(false)
 
@@ -54,7 +58,11 @@ const Classes = ({classes,LOAD_CLASSES}={}) => {
   return (
     <ClassesContainer>
       <H1>Clases</H1>
-      <P>¡Compartenos que clases deberia tener tu curso!</P>
+      { auth ?
+        <P>¡Compartenos que clases deberia tener tu curso!</P>
+        :
+        <P>¡Inicia sesion y compartenos que clases deberia tener tu curso!</P>
+      }
       <Toolbar onClickAdd={modalClass.setShow} />   
       { 
         render() 

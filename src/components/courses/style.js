@@ -32,7 +32,7 @@ export const CoursesContainer = styled.section`
  margin:0 auto;
  font-size:1em;
  @media screen and (max-width:420px){
-   font-size : .8em;
+   font-size : .9em;
  }
 ` 
 

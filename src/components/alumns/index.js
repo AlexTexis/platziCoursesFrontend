@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useContext} from 'react'
 import { connect } from 'react-redux'
 
 //redux
@@ -21,8 +21,12 @@ import Error from '../general/notifications/error'
 import { useModal } from '../../hooks/useModal'
 import { useGetStudents } from '../../hooks/students/useGet'
 
+//context 
+import { AppContext } from '../../context'
+
 
 const Alumns = ({students,LOAD_STUDENTS}={}) => {
+  const { auth } = useContext(AppContext)
   const modalAdd = useModal(false) 
   const { loading,error,setStudents } = useGetStudents()
 
@@ -52,7 +56,11 @@ const Alumns = ({students,LOAD_STUDENTS}={}) => {
   return (
     <StudentsContainer>
       <H1>Estudiantes</H1>
-      <P>¡Registrate para poder añadirte en un curso!</P>
+      { auth ?
+        <P>¡Registra un estudiante para poder añadirlo en un curso(puedes ser tu mismo)!</P>
+        :
+        <P>¡Inicia sesion para poder registrar estudiantes!</P>
+      }
       <Toolbar onClickAdd={modalAdd.setShow}/>
       { render() }
       {modalAdd.show &&

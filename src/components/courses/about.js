@@ -69,14 +69,14 @@ const CourseAbout = ({idCourse,courses,LOAD_COURSES,COURSE_REMOVE}={}) => {
 
         <ContainerSplit>
           <H2>Estudiantes :</H2>
-          <P>Aqui podras añadirte(debes registarte)</P>
+          <P>Aqui puedes agregar estudiantes(debes registarlo)</P>
           <Toolbar onClickAdd={modalAddStudent.setShow}/>
           <ListAlumns alumns={courses[idCourse].alumns} idCourse={idCourse}/>
         </ContainerSplit>
 
         <ContainerSplit>
           <H2>Clases :</H2>
-          <P >Compartenos que clases deberia incluir este curso(debes registrar la clase)</P>
+          <P >Aqui puedes agregar clases(debes registrarla)</P>
           <Toolbar onClickAdd={modalAddClass.setShow}/>
           <ListClasses classes={courses[idCourse].class} idCourse={idCourse}/>
         </ContainerSplit>

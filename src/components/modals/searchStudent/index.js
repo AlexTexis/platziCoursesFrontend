@@ -55,7 +55,7 @@ const addStudent = ({titleLabel,handlerCancel,idCourse,COURSE_STUDENT_ADD}={}) =
 
   return(
   <ModalContainer titleLabel={titleLabel} handlerCancel={handlerCancel}>
-     <H4 color='#182C3F'>Busca tu nombre</H4>
+     <H4 color='#182C3F'>Busca por nombre</H4>
     <SelectPlacehold
       loadOptions={handleLoadOptions}
       getOptionLabel={(props) => `${props.name} ${props.surnames}`}
@@ -63,7 +63,7 @@ const addStudent = ({titleLabel,handlerCancel,idCourse,COURSE_STUDENT_ADD}={}) =
       selectTitleLabel={['name','surnames']}
     />
      <LinkRoute to='/alumns'>
-      <H4 color='#182C3F'>¿Aun no te registras? ¡Registrate ahora!</H4>
+      <H4 color='#182C3F'>¿Aun no registras un estudiante? ¡Registralo ahora!</H4>
     </LinkRoute> 
     <Button backgroundColor='#98CA3F' onClick={handleAddStudent}>
       {
