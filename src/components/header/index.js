@@ -1,7 +1,6 @@
 import React,{useContext} from 'react'
 import { HeaderContainer,LogoContainer } from './style'
 import { H2 } from '../general/titles/style'
-import { LinkRouteBtn } from '../general/link/style'
 import { Button } from '../general/button/style'
 import { navigate } from '@reach/router'
 
@@ -24,9 +23,13 @@ const Header  = ({showBtnSession}={}) => {
   )
   
   return (
-    <LinkRouteBtn to='/signin' style={{marginBottom : '0'}}>
+    <Button 
+      onClick={() => navigate('/signin')} 
+      style={{marginBottom : '0'}}
+      backgroundColor='#98CA3F'
+    >
       Iniciar Sesión
-    </LinkRouteBtn>
+    </Button>
   )
  }
 

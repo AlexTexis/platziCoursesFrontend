@@ -1,21 +1,34 @@
 import React from 'react'
-import { CardContainer,CoverCourse,CourseTitle } from './style'
-import Label from '../../general/labels/simple/index'
+import { FaCheckCircle } from 'react-icons/fa'
+import { 
+  CardContainer,
+  CoverCourse,CourseTitle,
+  ClassTitle,TitleInfo,
+  ClassContainer 
+} from './style'
 
-const CardCourse = ({name,tutor,level,description}={}) => (
+const CardCourse = ({name,class:classes,alumns}={}) => (
   <CardContainer> 
     <CoverCourse>
       { name &&  <CourseTitle>{name.toUpperCase()}</CourseTitle> }
     </CoverCourse>
-    <Label>
-      Tutor : {tutor || 'sin tutor'}
-    </Label>   
-    <Label>
-      Nivel : { level || 'sin nivel'}
-    </Label>   
-    <Label>
-      Description : { description || 'sin descripcion'} 
-    </Label>   
+    <div>
+      <TitleInfo>Estudiantes : {alumns.length}</TitleInfo>
+      <TitleInfo>Clases : {classes.length}</TitleInfo>
+      {
+        classes.length ?
+        classes.map( clase => 
+          <ClassContainer key={clase._id}>
+            <ClassTitle>{ clase.name }</ClassTitle>
+            <FaCheckCircle style={{color : '#98CA3F'}}/>
+          </ClassContainer>
+         )
+        :
+        <ClassContainer>
+          <ClassTitle>Sin clases registradas 😮</ClassTitle>
+        </ClassContainer>
+      }
+    </div>
   </CardContainer>
 )
 

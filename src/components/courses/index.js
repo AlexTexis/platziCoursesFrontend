@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Card from './cardCourse/index'
 import Toolbar from '../general/toolbarContainer/index'
 import ModalAddCourse from '../modals/addCourse/index'
+import MasonryLayout from '../general/masonryLayout/index'
 
 //actions redux
 import * as actionsCourses from '../../action/actionsCourses'
@@ -38,7 +39,7 @@ const Courses = ({LOAD_COURSES,courses}={}) => {
     if(loading || !courses) return <Spinner color='#24ADF3' height='28px' width='28px' center/>
     if(!Object.keys(courses).length) return <H2>!Hey no hay cursos  🤷‍♂️‍,se el primero en registrar uno!</H2>
     return ( 
-      <GridCourses>
+      <MasonryLayout>
         {
           Object.keys(courses).map( idCourse => 
             <LinkRoute to={`/courses/${idCourse}`} key={idCourse}>
@@ -46,7 +47,7 @@ const Courses = ({LOAD_COURSES,courses}={}) => {
             </LinkRoute> 
           )
         }
-     </GridCourses>
+     </MasonryLayout>
     ) 
   }
 
